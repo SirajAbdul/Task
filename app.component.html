@@ -1,0 +1,80 @@
+<div class="container" style="text-align: center;">
+<form #myForm="ngForm">
+  <div class="form-group">
+    <label for="name">Employee Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="employeename" class="form-control" [(ngModel)]="userObj.employeename" ><br><br>
+  </div>
+  <div class="form-group">
+    <label for="designatation">Designatation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <select id="designatation">
+      <option value="manager">Manager</option>
+      <option value="software developer">Software Developer</option>
+      <option value="software tester">Software Testers</option>
+      <option value="admin">Admin</option>
+    </select><br><br>
+
+  </div>
+
+<div class="form-group">
+  <label for="salary">Salary:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="salary" class="form-control" [(ngModel)]="userObj.salary"><br><br>
+</div>
+  <div class="form-group">
+    <label for="email">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="email" class="form-control" [(ngModel)]="userObj.email"><br><br>
+
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="mobile" class="form-control" [(ngModel)]="userObj.mobile"><br><br>
+  </div>
+  <div class="form-group">
+    <label for="name">Qualification:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <select id="Qualification"><br><br>
+      <option value="mba">MBA</option>
+      <option value="mtech">MTech</option>
+      <option value="BTech">BTech</option>
+    </select><br><br>
+  </div>
+  <div class="form-group">
+    <label for="manager">Manager:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="text" name="manager" class="form-control" (ngModel)><br><br>
+  </div>
+  
+ 
+  <button type="button" class="btn btn-primary" (click)="addUser(myForm.value)">Update</button>&nbsp;
+  <button type="button">Reset</button>
+</form>
+
+<br>
+<table class="table" style="text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col">Employee Name</th>
+      <th scope="col">Designantion</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Manager</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+ <tbody>
+   <tr *ngFor="let user  allUser">
+     <td>{{user.employeename}}</td>
+     <td>{{user.designatation}}</td>
+     <td>{{user.salary}}</td>
+     <td>{{user.email}}</td>
+     <td>{{user.mobile}}</td>
+     <td>{{user.Qualification}}</td>
+     <td>{{user.manager}}</td>
+     <td><button (click)="editUser(user)" class="btn btn-warning" *ngIf="!isEdit">Edit</button></td>
+     <td><button (click)="deleteUser(user)" class="btn btn-danger" *ngIf="isEdit">Delete</button></td>
+    </tr>
+   </tbody>
+</table>
+
+</div>
